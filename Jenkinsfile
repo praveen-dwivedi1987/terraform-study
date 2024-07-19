@@ -20,7 +20,7 @@ pipeline {
         }
         stage('terraform plan'){
             when {
-                branch comparator: 'REGEXP', pattern: 'feture*'
+                branch 'feture-*'
             }
             steps{
                 sh '''terraform plan'''
