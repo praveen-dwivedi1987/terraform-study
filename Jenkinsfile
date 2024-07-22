@@ -12,6 +12,12 @@ pipeline {
                 sh '''terraform version'''
             }
         }
+
+        stage('change directory'){
+            steps{
+                sh ''' cd my-network'''
+            }
+        }
         stage('terraform init'){
             steps{
                 sh '''terraform init'''
@@ -23,10 +29,9 @@ pipeline {
                 branch 'feture-*'
             }
             steps{
-                sh '''
-                cd my-network
+                sh '''                
                 terraform plan
-                cd ..'''
+                '''
             }
 
         }
