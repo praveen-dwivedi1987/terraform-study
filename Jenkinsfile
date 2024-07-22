@@ -15,7 +15,8 @@ pipeline {
 
         stage('change directory'){
             steps{
-                sh ''' cd my-network'''
+                sh ''' cd my-network 
+                ls -lhrt '''
             }
         }
         stage('terraform init'){
@@ -26,7 +27,11 @@ pipeline {
         }
         stage('terraform plan'){
             when {
-                branch 'feture-*'
+                anyof{
+
+                    branch 'PR-*'
+                    branch 'feture-*'
+                }
             }
             steps{
                 sh '''                
