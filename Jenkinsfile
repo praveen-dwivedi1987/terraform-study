@@ -23,9 +23,17 @@ pipeline {
                 branch 'feture-*'
             }
             steps{
-                sh '''terraform plan'''
+                sh '''
+                cd my-network
+                terraform plan
+                cd ..'''
             }
 
+        }
+    }
+    post { 
+        always { 
+            cleanWs()
         }
     }
 }
