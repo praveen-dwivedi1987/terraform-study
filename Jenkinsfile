@@ -21,10 +21,13 @@ pipeline {
         }
         stage('terraform init'){
             steps{
-                sh '''
-                pwd
-                terraform init
-                '''
+                dir('my-network'){
+                    sh '''
+                    pwd
+                    terraform init
+                    '''
+                }
+                
             }
             
         }
@@ -36,9 +39,11 @@ pipeline {
                 }
             }
             steps{
-                sh '''                
-                terraform plan
-                '''
+                dir('my-network'){
+                    sh '''                             
+                    terraform plan
+                    '''
+                }
             }
 
         }
