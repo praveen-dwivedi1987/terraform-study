@@ -27,8 +27,7 @@ pipeline {
         }
         stage('terraform plan'){
             when {
-                anyof{
-
+                anyOf{
                     branch 'PR-*'
                     branch 'feture-*'
                 }
