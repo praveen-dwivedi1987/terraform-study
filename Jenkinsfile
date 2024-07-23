@@ -47,6 +47,19 @@ pipeline {
             }
 
         }
+
+        stage('terraform apply'){
+            when{
+                branch 'main'
+            }
+            steps{
+                dir('my-network'){
+                    sh '''
+                    terraform apply -auto-approve
+                    '''
+                }
+            }
+        }
     }
     post { 
         always { 
