@@ -3,7 +3,7 @@ resource "aws_route_table" "private_subnet_route" {
 
   route {
     cidr_block = "172.31.0.0/16"
-    vpc_peering_connection_id = module.vpc_peering_connection_id
+    vpc_peering_connection_id = module.my-network.vpc_peering_connection_id
   }
 
   

@@ -3,12 +3,12 @@ resource "aws_route_table" "public_subnet_route" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    vpc_peering_connection_id = module.vpc_peering_connection_id
+    vpc_peering_connection_id = module.my-network.vpc_peering_connection_id
   }
 
   route {
     ipv6_cidr_block        = "::/0"
-    vpc_peering_connection_id = module.vpc_peering_connection_id
+    vpc_peering_connection_id = module.my-network.vpc_peering_connection_id
   }
 
 
