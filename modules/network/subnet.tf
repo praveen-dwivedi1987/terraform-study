@@ -20,9 +20,9 @@ resource "aws_subnet" "private-subnet" {
 }
 
 output "public_subnet_ids" {
-  value = [for id in aws_subnet.public-subnet.id : id]
+  value = {for k, v in aws_subnet.public-subnet: k => v.id}
 }
 
 output "private_subnet_ids" {
-  value = [for id in aws_subnet.private-subnet.id: id]
+  value = {for k, v in aws_subnet.private-subnet: k => v.id}
 }

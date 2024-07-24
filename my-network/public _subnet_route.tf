@@ -18,7 +18,7 @@ resource "aws_route_table" "public_subnet_route" {
 }
 
 resource "aws_route_table_association" "public_subnet_association" {
-  for_each = [for id in  module.my-network.public_subnet_ids : id] 
+  for_each = {for k, v in  module.my-network.public_subnet_ids : k => v}
   subnet_id      = each.value
   route_table_id = aws_route_table.private_subnet_route.id
 }
