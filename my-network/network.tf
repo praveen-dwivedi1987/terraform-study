@@ -1,3 +1,4 @@
+
 module "my-network" {
   source = "../modules/network"
   
@@ -18,4 +19,5 @@ module "my-network" {
     }]
   }
 
+ vpc_peering_required = true
 }

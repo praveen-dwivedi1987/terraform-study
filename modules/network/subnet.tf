@@ -18,3 +18,11 @@ resource "aws_subnet" "private-subnet" {
     Name = each.value.name
   }
 }
+
+output "public_subnet_ids" {
+  value = {for k, v in aws_subnet.public-subnet: k => v.id}
+}
+
+output "private_subnet_ids" {
+  value = {for k, v in aws_subnet.private-subnet: k => v.id}
+}

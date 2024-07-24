@@ -18,3 +18,7 @@ variable "subnet_cidr" {
     }]
   }
 }
+
+variable "vpc_peering_required"{
+  default = true
+}
