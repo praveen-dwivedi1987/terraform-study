@@ -19,5 +19,5 @@ module "my-network" {
     }]
   }
 
- vpc_peering_required = false 
+ vpc_peering_required = true
 }
