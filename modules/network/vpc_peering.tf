@@ -1,5 +1,5 @@
 data aws_vpc "default_vpc"{
-    tags = {
+    filter {
         name = "Name"
         values = "my-eks-vpc"
       }
