@@ -1,7 +1,7 @@
 data aws_vpc "default_vpc"{
     filter {
         name = "Name"
-        values = "my-eks-vpc"
+        values = ["my-eks-vpc"]
       }
 }
 
