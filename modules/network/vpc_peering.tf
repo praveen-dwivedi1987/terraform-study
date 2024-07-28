@@ -17,5 +17,5 @@ resource "aws_vpc_peering_connection" "vpc_peering" {
 }
 
 output "vpc_peering_connection_id" {
-  value = aws_vpc_peering_connection.vpc_peering[0].id
+  value = var.vpc_peering_required == true ? aws_vpc_peering_connection.vpc_peering[0].id : "Peering not required"
 }

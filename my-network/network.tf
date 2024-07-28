@@ -19,5 +19,7 @@ module "my-network" {
     }]
   }
 
- vpc_peering_required = true
+ vpc_peering_required = false
+
+ transit_gateway_required = true
 }
