@@ -22,3 +22,7 @@ variable "subnet_cidr" {
 variable "vpc_peering_required"{
   default = true
 }
+
+variable "transit_gateway_required" {
+  default = true
+}
