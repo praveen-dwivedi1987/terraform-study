@@ -21,9 +21,7 @@ data "aws_subnets" "default_vpc_subnet" {
   }
 }
 
-output "aws_subnets" {
-  value = data.aws_subnets.default_vpc_subnet
-}
+
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "default-vpc-attachment" {
   subnet_ids         = data.aws_subnets.default_vpc_subnet.ids
