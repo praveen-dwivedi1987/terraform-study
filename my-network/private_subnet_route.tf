@@ -17,10 +17,11 @@ resource "aws_route_table" "private_subnet_route" {
 resource "aws_route_table" "private_subnet_route_transit_gateway" {
   vpc_id = module.my-network.main_vpc_id
   count = var.transit_gateway_required == true ? 1 :0
+  depends_on = [aws_ec2_transit_gateway_vpc_attachment.main-vpc-attachment]
 
   route {
     cidr_block = "172.31.0.0/16"
-    vpc_peering_connection_id = module.my-network.transit-gateway-id
+    transit_gateway_id = module.my-network.transit-gateway-id
   }
 
   
